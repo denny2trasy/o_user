@@ -1,0 +1,11 @@
+<%= notice%>
+<%unless current_user%>
+  <div>
+	<%= form_tag sessions_path, :method => :post do %>
+		login:<%= text_field_tag 'login' %><br/>
+		password:<%= password_field_tag 'password' %><br/>
+		<%= submit_tag 'submit' %>
+		<%= hidden_field_tag 'forward', (params[:forward] or params[:target]) %>
+	<% end %>
+  </div>
+<% end %>

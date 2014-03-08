@@ -1,0 +1,36 @@
+zh:
+  invalid_user: Invalid User
+  register_fail: 注册失败，请检查您的输入
+  update_fail: 更新失败，请检查您的输入
+  update_success: 修改成功
+  passwords:
+    original_password_error: 原始密码错误
+    original_password: 原始密码
+    password: 密码
+    password_confirmation: 密码确认
+  
+  login_or_email_error: 用户名或邮箱错误，请检查后重试！
+  session:
+    login_other_place: "对不起，该帐号已经登录系统!"
+    
+  right: 权利
+  role: 角色
+  
+  id: id
+  login: 用户名
+  mail: 邮&nbsp;&nbsp;&nbsp;&nbsp;箱
+  password: 密码
+  mobile: 手机号码
+  user_type: 用户类型
+  client_type: 客户类型
+  
+  will_paginate:
+    page_gap: ...
+    previous_label: 上一页
+    next_label: 下一页
+    
+
+  
+  
+  
+  

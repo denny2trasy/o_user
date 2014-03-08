@@ -1,0 +1,35 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  invalid_user: Incorrect login or password.
+  register_fail: Error,please re-entry.
+  update_fail: Error,please re-entry.
+  update_success: Successful
+  passwords:
+    original_password_error: Original Password Error
+    original_password: Original Password
+    password: Password
+    password_confirmation: Confirm Password
+  
+  login_or_email_error: login name or Email error! Please try again! 
+  session:
+    login_other_place: "You has login other place!"
+
+  right: right
+  role: role
+
+  id: id
+  login: Login
+  mail: Email
+  password: Password
+  mobile: Mobile
+  user_type: User type
+  client_type: Client type
+
+  will_paginate:
+    page_gap: ...
+    previous_label: previous
+    next_label: next
+    
+

@@ -1,0 +1,35 @@
+<div class="dhtmlgoodies_tabPane">
+	<div id="tabTabtabViews_0" class="tabActive" style="left: 0px;"><span style="position: relative; padding-left: 4px; padding-right: 4px;">Edit User Profile</span><img src="/assets/images/idp_views/tab_right_active.gif"></div>
+	<div id="tabTabtabViews_1" class="tabInactive" style="left: 0px;"><span style="position: relative; padding-left: 3px; padding-right: 3px;">Roles of <%= @profile.login%></span><img src="/assets/images/idp_views/tab_right_inactive.gif"></div>
+	<div id="tabTabtabViews_2" class="tabInactive" style="left: 2px;"><span style="position: relative; padding-left: 3px; padding-right: 3px;">Change Password</span><img src="/assets/images/idp_views/tab_right_inactive.gif"></div></div>
+
+<div style="clear:both"></div>
+
+<%= render @profile %>
+
+<script>
+$(document).ready(function(){
+	$(".dhtmlgoodies_tabPane>div").click(function(){
+		index = $(this).attr('id').split('_')[1];
+		$("#profile div").hide();
+		$("#view_" + index).show();
+		$(".dhtmlgoodies_tabPane>div").removeClass('tabActive').addClass('tabInactive');
+		$(this).removeClass('tabInactive').addClass("tabActive");
+	})
+
+	$(':checkbox').click(function(){
+		user_id = $("#user_id").val();
+		role_id = $(this).val();
+		if ($(this).attr('checked') == true){
+			$.post("/el_user/profiles/"+user_id+"/update_role", { role_id: role_id, create: true },
+			   function(data) {
+			   });
+		}else{
+			$.post("/el_user/profiles/"+user_id+"/update_role", { role_id: role_id },
+			  function(data) {
+			 });
+		}
+	})
+})
+
+</script>

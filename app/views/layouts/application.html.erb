@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ElUser</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+<div style="float:right;padding:0 20px;">
+    <% if current_user %>
+      <%= current_user.login %>
+      <%= link_to 'logout', signout_path, :method => :delete %>
+</div>   
+	<div style="clear:both;"></div>
+
+	<div class="hmenu2">
+		<ul>
+	      <li class="active"> <%= link_to 'User Roles', profiles_path %></a></li>
+	      <li><%= link_to 'Role Rights', setting_rights_path %></li>
+	      <li><%=link_to 'Role Settings', setting_role_link_groups_path(515)%></a></li>
+	    </ul>
+ 
+<% else %>
+      <%= link_to 'login', signin_path %>
+    <% end %>
+</div>
+
+ <%= yield %>
+
+  </body>
+</html>

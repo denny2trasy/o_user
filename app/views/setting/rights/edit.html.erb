@@ -1,0 +1,7 @@
+<% form_tag setting_right_path(@right), :method => :put do %>
+  <ul class="role_list">
+    <%= render :partial => "role", :collection => Role.roots %>
+  </ul>
+  <%= submit_tag t(:submit) %>
+<% end %>
+<%#= role_right_tag(@role, @right) %>

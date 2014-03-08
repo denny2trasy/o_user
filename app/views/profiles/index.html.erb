@@ -1,0 +1,29 @@
+<%= render :partial => 'toolbar'%>
+
+<table class="list_table">
+	<thead>
+		<th>ID</th>
+		<th>Login</th>
+		<th>Mail</th>
+		<th>Given Name</th>
+		<th>User Type</th>
+		<th>Channel</th>
+		<th>Created At&nbsp;</th>
+		<th>Last Seen At</th>
+	</thead>
+	<tbody>
+		<% for profile in @profiles%>
+		<tr>
+			<td><%= profile.id%></td>
+			<td><%=link_to profile.login, edit_profile_path(profile.id) %></td>
+			<td><%=link_to profile.mail, edit_profile_path(profile.id) %></td>
+			<td><%= profile.given_name%></td>
+			<td><%= profile.user_type%></td>
+			<td><%= profile.channel%></td>
+			<td><%= profile.created_at %></td>
+			<td><%= profile.last_seen_at%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= will_paginate @profiles %>

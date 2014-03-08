@@ -1,0 +1,6 @@
+<div id="toolbar">
+  <%= search_form_for(Profile, :id, :login,:mail, :mobile,[:user_type, {:collection=>["student","trainer","admin", "Eleutian"]}], [:client_type, {:collection => ["SpicusStudent", "SpicusTrainer"]}],:created_at, :simple=>2, :url => profiles_path) %>
+<div align="right">
+  <%= link_to "create user", new_profile_path %>
+</div>
+</div>

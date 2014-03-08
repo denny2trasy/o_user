@@ -1,0 +1,32 @@
+
+<div style="clear:both;">
+	<div style="width:18%;;float:left;">
+		<ul style="border:1px #577BBF solid;padding:10px;margin:0px 20px;">
+			<% @right_lists.each_with_index do |item, index| %>
+				<% if index % 2 == 0 %>
+					<li style="list-style:none;background:#E6EDFF;"><%=link_to item.name, setting_rights_path(:right_id => item.id)%></li>
+				<% else %>
+					<li style="list-style:none;background;"><%=link_to item.name, setting_rights_path(:right_id => item.id)%></li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+	<div>
+		<table style="width:80%;" class="list_table" >
+			<thead>
+				<th><%= t :edit %></th>
+				<th><%= t :right %></th>
+				<th><%= t :role %></th>
+			</thead>
+			<tbody>
+			    <%= render :partial => "right", :collection => @right.children %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+	li = $(".hmenu2").find("li").removeClass('active')[1];
+	$(li).addClass("active");
+})
+</script>

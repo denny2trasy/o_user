@@ -1,0 +1,9 @@
+<li>
+  <% checked = @right.roles.include?(role)  %>
+<%= check_box_tag "role[#{role.id}]", role.id, checked, :id=>role.dom_id %><label for="<%= role.dom_id %>"<%= " style='color:red'" if checked %>><%= role.name %></label>
+  <% if role.children.present? %>
+    <ul>
+      <%= render :partial => "role", :collection => role.children %>
+    </ul>
+  <% end %>
+</li>

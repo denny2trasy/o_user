@@ -1,0 +1,12 @@
+<tr id="<%= right.dom_id %>"<%= " class='parent-right'" if right.children.present? %>>
+  <td><%= popup t(:edit), edit_setting_right_path(right) %></td>
+  <% if right.children.size == 0 %>
+    <td style="padding-left:<%= right.depth * 50 %>px;">
+      <%= right.name %>
+    </td>
+    <td><%= right.roles.map{|t| t.try(:name)}.join(' ') %></td>
+  <% else %>
+    <td style="padding-left:<%= right.depth * 50 %>px;" colspan="2" ><%= right.name %></td>
+  <% end %>
+</tr>
+<%= render right.children %>

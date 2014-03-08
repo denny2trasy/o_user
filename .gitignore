@@ -2,6 +2,11 @@
 *.sassc
 .sass-cache
 capybara-*.html
+Capfile
+/config/unicorn.rb
+/config/deploy.rb
+/config/app_config.yml
+/config/database.yml
 .rspec
 .rvmrc
 /.bundle

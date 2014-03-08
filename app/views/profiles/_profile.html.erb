@@ -1,0 +1,62 @@
+<% @profile = profile %>
+<div id="profile">
+	<div id="view_0">
+		<% form_for :profile, :remote => true, :url=>{:controller => "profiles", :action => "update"}, :html => {:method => :put} do |f| %>
+		<div id="pinfo"></div><hr>
+		<table style="float:left">
+			<% [:login, :mail].each do |attr| %>
+			<tr><th><%= attr %></th><td><%= f.text_field attr  %></td></tr>
+			<% end %>
+			<tr><th> time_zone</th><td><%= f.select :time_zone, time_zone_list %></td></tr>
+			<tr><th> locale</th><td><%= f.select :locale, ['en', 'zh', 'tw'] %></td></tr>
+			<tr><th> all_day_interaction</th><td><%= f.select :all_day_interaction, [false, true] %></td></tr>
+			<tr><th> gender</th><td><%= f.select :gender, [[t(:male), 1],[t(:female),2]] %></td></tr>
+			<% [:given_name, :surname, :display_name].each do |attr| %>
+			<tr><th><%= attr %></th><td><%= f.text_field attr %></td></tr>
+			<% end %>
+			<tr><th> birthday</th><td><%= date_field_tag "profile[birthday]", @profile.birthday, :only_date=>true %></td></tr>
+				<tr>
+					<th>flow_type</th>
+					<td><%= f.text_field :flow_type %></td>
+				</tr>
+				<tr>
+					<th>from partner</th>
+					<td><%= f.text_field :from_partner %></td>
+				</tr>
+		</table>
+		<table style="float:left">
+			<% [:street, :city, :state, :country, :postal_address, :postal_city, :postal_state,:postal_code, :phone,:phone2,
+				:mobile, :msn, :qq, :skype, :gtalk, :connect_type, :connect_number].each do |attr| %>
+				<% if  attr == :mobile %>
+			</table><table style="float: left">
+				<% end %>
+				<tr><th><%= attr %></th><td><%= f.text_field attr %></td></tr>
+				<% end %>
+				<tr><th>channel</th><td><%= @profile.channel %></td></tr>
+				<tr><th> from_page</th><td><%= @profile.from_page %></td></tr>
+				<tr><th>created_at</th><td><%= @profile.created_at.to_s(:full) %></td></tr>
+			</table>
+
+
+			<p style="clear: both"><%= f.submit t(:submit) %></p>
+			<% end %>
+
+		</div>
+		<div id="view_1" style="display:none ">
+			<ul class="role_list">
+				<%= render :partial => "role", :collection => Role.roots %>
+			</ul>
+		</div>
+		<div id="view_2" style="display:none">
+
+			<% form_for :profile, :remote => true, :url=>{:controller => "profiles", :action => "update"}, :html => {:method => :put} do |f| %>
+			<div id="info"></div><hr>
+			<table>
+				<tr><th> password </th><td><%= f.password_field :password %></td></tr>
+				<tr><th> password_confirmation  </th><td><%= f.password_field :password_confirmation %></td></tr>
+			</table>
+			<p><%= f.submit t(:submit) %></p>
+			<% end %>
+		</div>
+	</div>
+</div>

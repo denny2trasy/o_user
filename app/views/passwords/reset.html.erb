@@ -1,0 +1,39 @@
+<style type="text/css">
+.newregisterbutton{background:url(/el_user/images/submit.jpg) no-repeat; width:246px; height:40px; border:none; margin-top:10px; }
+				input.newregisterbutton:a{background:url(/el_user/images/submit.jpg) no-repeat; width:246px; height:40px; border:none; margin-top:10px; }
+				input.newregisterbutton:hover{ background-position: 0px -41px; }
+
+.newerror_msg{color:#f00; font-size:12px; margin-bottom:10px;}
+</style>
+
+<script type="text/javascript">
+
+var time = 5;
+
+function forward_to(){
+	var forward_url = document.getElementById("redirect").href;
+    time --;
+    if(time == 0){
+        document.location.href = forward_url;
+    }
+	else{
+		document.getElementById("message").innerHTML = (time) + "秒后自动跳转";
+	}
+}
+window.setInterval("forward_to()",1000);
+</script>
+
+<body onready="forward_to()">
+<div style=" margin:auto; width:400px; height:300px; border:1px solid #CCC; padding:30px 30px 30px 30px; background:url(/el_user/images/forgot_bg.jpg) repeat; margin-top:120px; ">
+<div style=" font-size:20px; margin-bottom:20px; background:url(/el_user/images/edit_icon.png) no-repeat; width:360px; height:120px; "></div>
+<p style="line-height:22px;">密码重置成功！新密码已经发送到您的邮箱，请在登陆后修改新密码！
+ <%= link_to "如果没有自动跳转，请点击此链接" ,@redirect_url,:id =>"redirect"%></p>
+<div id="message"></div>
+
+</div>
+  
+</div>
+</body>
+
+
+

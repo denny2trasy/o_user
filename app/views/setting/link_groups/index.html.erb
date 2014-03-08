@@ -1,0 +1,40 @@
+<div style="width:25%;;float:left;">
+	<%=raw role_list{|t| setting_role_link_groups_path(t)} %>
+</div>
+<div style="width:70%;;float:left;margin:0 20px;">
+	<div id="links" class="main300">
+	  <% if @role.blank? %>
+	    <p><%= notice t(:select_role) %></p>
+	  <% else %>
+
+	      <% @role.link_groups.each_with_index do |group, index|
+	        @link_group = group
+	      %>
+	          <div class="right">
+	            <%=raw @link_group.name_en %>
+	            <%=raw @link_group.name_zh %>
+	          </div>
+
+	          <%= list_table_for(group.link_group_links) do |item, col|
+	            @link_group_link, @link = item, item.link
+	            col.add :position, "<center>" + @link_group_link.position.to_s  + "</center>"
+	            col.add :name_en, @link.name_en
+	            col.add :name_zh, @link.name_zh
+	            col.add :path, @link.path
+	            col.add :target, @link.target_page
+	            col.add :description_en, @link.description_en
+	            col.add :description_zh, @link.description_zh
+	          end
+	        %>
+	        <% end
+	     %>
+
+
+	  <% end %>
+	</div>	
+</div>
+<script>
+$(document).ready(function(){
+	$(".hmenu2").find("li").removeClass('active').last().addClass("active");
+})
+</script>

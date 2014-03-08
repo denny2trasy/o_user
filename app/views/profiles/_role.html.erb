@@ -1,0 +1,7 @@
+<li>
+  <input type="hidden" id="user_id" value="<%= @profile.id%>">
+  <%=raw role_tag(role, @profile) %>
+  <ul>
+    <%= render :partial => "role", :collection => role.children %>
+  </ul>
+</li>

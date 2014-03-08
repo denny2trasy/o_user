@@ -1,0 +1,11 @@
+<h1>Register</h1>
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :login %>
+  <%= f.input :mail %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :user_type do%>
+  	<%= f.select( "user_type", { "Admin" => "admin", "Teacher" => 'teacher', "student" =>"student"},{ :include_blank => true }) %>
+  <% end%>
+  <%= f.button :submit %>
+<% end %>
