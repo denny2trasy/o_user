@@ -42,7 +42,7 @@ GEM
       eco_apps_util (>= 0.2.0)
       netaddr
     eco_apps_auth (0.2.0)
-      eco_apps (>= 0.2.0)
+      eco_apps
     eco_apps_master (0.2.0)
       eco_apps (>= 0.2.0)
     eco_apps_support (0.2.0)

@@ -22,3 +22,9 @@ rerun.txt
 pickle-email-*.html
 .project
 config/initializers/secret_token.rb
+public/javascripts/frame.js
+public/javascripts/jquery.colorbox.js
+public/javascripts/rails.js
+public/stylesheets/colorbox.css
+public/stylesheets/frame.css
+public/stylesheets/images
